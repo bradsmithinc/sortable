@@ -212,7 +212,7 @@ module Sortable
           values = Array.new        
           g = Generator.new(search_array)
           g.each do |col|
-           columns_to_search += col + ' LIKE ? '
+           columns_to_search += '\'' + col + '\' LIKE ? '
            columns_to_search += 'OR ' unless g.end?
            values<< "%#{params[:q]}%"
           end
